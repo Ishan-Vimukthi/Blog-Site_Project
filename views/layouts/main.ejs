@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
 </head>
 <body>
-    <%- body %>
+
+    <div class="container">
+        <%# header file %>
+        <%- include('../partials/header.ejs') %>
+
+        <%# Main Body Content %>
+        <main class="main">
+            <%- body %>
+        </main>
+        
+        <%# footer file %>
+        <%- include('../partials/footer.ejs') %>
+
+    </div>
 </body>
 </html> 
