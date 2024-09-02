@@ -19,5 +19,13 @@ body{
     margin: 0;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    font-family: 'Poppins', sans-serif;
+}
 
 
