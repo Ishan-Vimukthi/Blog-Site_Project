@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
-const connectDB = async () => {
+require('dotenv').config(); // Import dotenv to use environment variables
 
-    try{
-        mongoose.set('strictquery', false);
-        mongodb_url = "mongodb+srv://ishan123:<db_password>@cluster0.t6ift.mongodb.net/";
-        const conn = await mongoose.connect(mongodb_url);
-        console.log('Database Connected');
+const connectDB = async () => {
+    try {
+        mongoose.set('strictQuery', false);
+        const mongodb_url = process.env.MONGODB_URL; // Use environment variable for MongoDB URL
+        const conn = await mongoose.connect(mongodb_url, {
+            useNewUrlParser: true, // Recommended to avoid deprecation warnings
+            useUnifiedTopology: true // Enables new connection management engine
+        });
+        console.log(`Database Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.log(error);
+        console.error(`Error: ${error.message}`);
+        process.exit(1); // Exit process with failure
     }
 }
 
