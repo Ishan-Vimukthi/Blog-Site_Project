@@ -9,12 +9,16 @@
     <h2 class="articles_heading">Latest Posts</h2>
 
     <ul class="article-ul">
+
+        <% data.forEach(post => { %>
+
         <li>
             <a href="#">
-                <span>Post Title</span>
-                <span class="article-list_date">Date</span>
+                <span><%= post.title %></span>
+                <span class="article-list_date"><%= post.createdAt%></span>
             </a>
         </li>
+        <% }) %>
     </ul>
 
     <a href="#" class="pagination"> 
